@@ -1,7 +1,7 @@
 import * as React from "react"
 
 // Components
-import Layout from "components/layout"
+import Layout from "components/Layout"
 //import SEO from "components/SEO"
 
 // markup
