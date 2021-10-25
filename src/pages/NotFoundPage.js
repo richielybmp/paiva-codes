@@ -7,7 +7,7 @@ import Layout from "components/Layout"
 // markup
 const NotFoundPage = () => {
   <Layout>
-    404: not found
+    Not found
   </Layout>
 }
 
