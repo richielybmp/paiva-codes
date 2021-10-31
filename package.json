@@ -17,10 +17,13 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.13.3",
     "gatsby": "^4.0.0",
+    "gatsby-image": "^3.11.0",
+    "gatsby-plugin-sharp": "^4.0.1",
     "gatsby-plugin-styled-components": "^5.0.0",
     "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-source-filesystem": "^4.0.0",
     "gatsby-transformer-remark": "^5.0.0",
+    "gatsby-transformer-sharp": "^4.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.3.3"
