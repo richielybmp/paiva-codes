@@ -53,28 +53,28 @@ exports.createPages = async ({ graphql, actions }) => {
   const allPages = content.data.pages.edges;
 
   allPosts.forEach((node) => {
-    console.log('post', node)
-    //if (node.frontmatter.published) {
-    // createPage({
-    //   path: node.fields.slug,
-    //   component: path.resolve(`./src/templates/Post.js`),
-    //   context: {
-    //     slug: node.fields.slug,
-    //   },
-    // })
-    //}
+    // console.log('post', node.frontmatter.published)
+    // if (node.frontmatter.published) {
+    //   createPage({
+    //     path: node.fields.slug,
+    //     component: path.resolve(`./src/templates/Post.js`),
+    //     context: {
+    //       slug: node.fields.slug,
+    //     },
+    //   })
+    // }
   })
 
   allPages.forEach((node) => {
-    console.log('page', node)
+    console.log('page', node.fields.slug)
 
-    // createPage({
-    //   path: node.fields.slug,
-    //   component: path.resolve(`./src/templates/Page.js`),
-    //   context: {
-    //     slug: node.fields.slug,
-    //   },
-    // })
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/Page.js`),
+      context: {
+        slug: node.fields.slug,
+      },
+    })
   })
 
 }
