@@ -77,6 +77,21 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  const postPerPage = 2;
+  const numPages = Math.ceil(allPosts.length / postPerPage);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: path.resolve(`./src/templates/Home.js`),
+      context: {
+        limit: postPerPage,
+        skip: i * postPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
