@@ -9,7 +9,7 @@ const Post = ({ data }) => {
     const post = data.markdownRemark;
     return (
         <Layout>
-            <SEO title={post.frontmatter.title} />
+            {/* <SEO title={post.frontmatter.title} /> */}
             <Image fluid={post.frontmatter.image.childImageSharp.fluid} />
             <main>
                 <h2>{post.frontmatter.title}</h2>
