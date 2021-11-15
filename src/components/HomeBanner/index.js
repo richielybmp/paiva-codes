@@ -6,21 +6,22 @@ import BGImage from 'components/BGImage'
 // Hooks
 import useBannerQuery from 'hooks/useBannerQuery'
 // Styles
+import { BannerWrapper, TextWrapper } from './HomeBanner.styles'
 
 const HomeBanner = () => {
     const { bannerImage, bannerImageText, bannerImageBtnText, bannerImageBtnLink } = useBannerQuery();
 
     return (
-        <div>
+        <BannerWrapper>
             <BGImage title="Banner Image" fluid={bannerImage.childImageSharp.fluid}>
-                <div>
+                <TextWrapper>
                     <h2>{bannerImageText}</h2>
-                </div>
-                <Link to={bannerImageBtnLink}>
-                    <button>{bannerImageBtnText}</button>
-                </Link>
+                    <Link to={bannerImageBtnLink}>
+                        <button>{bannerImageBtnText}</button>
+                    </Link>
+                </TextWrapper>
             </BGImage>
-        </div>
+        </BannerWrapper>
     )
 }
 

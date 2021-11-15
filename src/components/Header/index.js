@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'gatsby'
 import { Wrapper, Logo } from './Header.styles'
 // Hooks
@@ -7,8 +7,12 @@ import { useConfigQuery } from 'hooks/useConfigQuery'
 import Menu from 'components/Menu'
 import Hamburger from 'components/Hamburger'
 import MobileMenu from 'components/MobileMenu'
+import ModeButton from 'components/ModeButton'
+
+import { ModeContext } from 'context/ModeProvider'
 
 const Header = ({ siteTitle = `` }) => {
+    const [darkMode, setDarkMode] = useContext(ModeContext);
 
     const siteConfig = useConfigQuery();
 
@@ -23,7 +27,7 @@ const Header = ({ siteTitle = `` }) => {
             </Link>
             <Menu items={siteConfig.menu} />
 
-            <div>Theme Button</div>
+            <ModeButton darkMode={darkMode} setDarkMode={setDarkMode} />
         </Wrapper>
     )
 }

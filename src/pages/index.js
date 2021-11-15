@@ -9,15 +9,27 @@ import HomeBanner from "components/HomeBanner"
 import BlogPostCard from "components/BlogPostCard"
 
 const IndexPage = ({ data }) => {
-    console.log(data)
-    return (
-        <Layout>
-            <HomeBanner />
-            <main>
-                <BlogPostCard />
-            </main>
-        </Layout>
-    )
+  const posts = data.allMarkdownRemark.edges;
+
+  return (
+    <Layout>
+      <HomeBanner />
+      <main>
+        {posts.map(({ node }, i) => {
+          const title = node.frontmatter.title;
+          return <BlogPostCard
+            key={i}
+            slug="/"
+            title={title}
+            date={node.frontmatter.date}
+            readingTime={node.fields.readingTime.text}
+            excerpt={node.excerpt}
+            image={node.frontmatter.image.childImageSharp.fluid}
+          />
+        })}
+      </main>
+    </Layout>
+  )
 }
 
 export default IndexPage
